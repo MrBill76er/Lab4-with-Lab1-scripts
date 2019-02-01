@@ -1,10 +1,15 @@
 # Vagrantfile config for Linux Admin 3
 
+$script = <<-SCRIPT
+echo Top System usages
+ps -eo %mem,%cpu,comm --sort=-%mem | head -n 6
+SCRIPT
+
 Vagrant.configure("2") do |config|
 
 # System info
   config.vm.provision "shell", 
-    	  inline: "ps -eo %mem,%cpu,comm --sort=-%mem | head -n 6"
+    	  inline: $script
 
 # Run backup on both virtual machines: box1 and box2
 
