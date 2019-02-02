@@ -1,7 +1,7 @@
 # Vagrantfile config for Linux Admin 3
 
 $script = <<-SCRIPT
-echo Top System usages
+echo Top System Uses
 ps -eo %mem,%cpu,comm --sort=-%mem | head -n 6
 SCRIPT
 
@@ -9,7 +9,7 @@ Vagrant.configure("2") do |config|
 
 # System info
   config.vm.provision "shell", 
-    	  inline: $script
+    	  inline: script
 
    config.vm.define "box1" do |box1|
 
